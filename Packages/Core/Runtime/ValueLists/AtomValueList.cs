@@ -11,8 +11,9 @@ namespace UnityAtoms
     /// <typeparam name="T">The list item type.</typeparam>
     /// <typeparam name="E">Event of type `AtomEvent&lt;T&gt;`.</typeparam>
     [EditorIcon("atom-icon-piglet")]
-    public abstract class AtomValueList<T, E> : BaseAtomValueList, IList<T>
+    public abstract class AtomValueList<T, E, EElementChanged> : BaseAtomValueList, IList<T>
         where E : AtomEvent<T>
+        where EElementChanged: AtomEvent<int>
     {
         /// <summary>
         /// Event for when something is added to the list.
@@ -27,6 +28,12 @@ namespace UnityAtoms
         /// <summary>
         /// Get the count of the list.
         /// </summary>
+        
+        /// <summary>
+        /// Event for when one element is modified form the list.
+        /// </summary>
+        public EElementChanged ElementChanged;
+
         public int Count => list.Count;
 
         /// <summary>
@@ -105,7 +112,7 @@ namespace UnityAtoms
         /// Indexer of the list.
         /// </summary>
         /// <value>Get or set an item via index in the list.</value>
-        public T this[int index]
+        public virtual T this[int index]
         {
             get
             {
@@ -114,6 +121,7 @@ namespace UnityAtoms
             set
             {
                 list[index] = value;
+                ElementChanged.Raise(index);
             }
         }
 
@@ -215,6 +223,6 @@ namespace UnityAtoms
 
         #endregion // Observable
 
-        protected override IList IList { get => List; }
+        public override IList IList { get => List; }
     }
 }

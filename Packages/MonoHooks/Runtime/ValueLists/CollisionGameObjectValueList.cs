@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityAtoms.MonoHooks;
+using UnityAtoms.BaseAtoms;
 
 namespace UnityAtoms.MonoHooks
 {
@@ -8,5 +9,5 @@ namespace UnityAtoms.MonoHooks
     /// </summary>
     [EditorIcon("atom-icon-piglet")]
     [CreateAssetMenu(menuName = "Unity Atoms/Value Lists/CollisionGameObject", fileName = "CollisionGameObjectValueList")]
-    public sealed class CollisionGameObjectValueList : AtomValueList<CollisionGameObject, CollisionGameObjectEvent> { }
+    public sealed class CollisionGameObjectValueList : AtomValueList<CollisionGameObject, CollisionGameObjectEvent, IntEvent> { }
 }

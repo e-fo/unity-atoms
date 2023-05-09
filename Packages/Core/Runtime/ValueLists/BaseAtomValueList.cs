@@ -13,7 +13,7 @@ namespace UnityAtoms
         /// Event for when the list is cleared.
         /// </summary>
         public AtomEventBase Cleared;
-        protected abstract IList IList { get; }
+        public abstract IList IList { get; }
 
         /// <summary>
         /// Whether the list should start cleared

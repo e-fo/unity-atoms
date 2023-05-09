@@ -7,5 +7,5 @@ namespace UnityAtoms.BaseAtoms
     /// </summary>
     [EditorIcon("atom-icon-piglet")]
     [CreateAssetMenu(menuName = "Unity Atoms/Value Lists/GameObject", fileName = "GameObjectValueList")]
-    public sealed class GameObjectValueList : AtomValueList<GameObject, GameObjectEvent> { }
+    public sealed class GameObjectValueList : AtomValueList<GameObject, GameObjectEvent, IntEvent> {}
 }

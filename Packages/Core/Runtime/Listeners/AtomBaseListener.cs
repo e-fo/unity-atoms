@@ -96,6 +96,10 @@ namespace UnityAtoms
                 {
                     shouldRespond = conditionWithParam.Call(item);
                 }
+                else if (condition is AtomConditionWithContext conditionWithContext)
+                {
+                    shouldRespond = conditionWithContext.Call(this.gameObject);
+                }
                 else
                 {
                     shouldRespond = condition.Call();

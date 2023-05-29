@@ -69,6 +69,8 @@ namespace UnityAtoms
             AddToReplayBuffer(item);
         }
 
+        public void Raise(AtomBaseVariable variable) => Raise((T)variable.BaseValue);
+
         /// <summary>
         /// Used in editor scipts since Raise is ambigious when using reflection to get method.
         /// </summary>

@@ -35,4 +35,15 @@ namespace UnityAtoms
         /// <returns></returns>
         public virtual bool Call(GameObject context) => base.Call();
     }
+
+    public abstract class AtomConditionWithContext<T> : AtomCondition
+    {
+        /// <summary>
+        /// Evaluate the Condition.
+        /// </summary>
+        /// <param name="context">The gameobject of the listener</param>
+        /// <param name="t">The first parameter.</param>
+        /// <returns></returns>
+        public virtual bool Call(GameObject context, T t) => base.Call();
+    }
 }

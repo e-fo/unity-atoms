@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -99,6 +100,10 @@ namespace UnityAtoms
                 else if (condition is AtomConditionWithContext conditionWithContext)
                 {
                     shouldRespond = conditionWithContext.Call(this.gameObject);
+                }
+                else if(condition is AtomConditionWithContext<T> conditionWithContextAndParam)
+                {
+                    shouldRespond = conditionWithContextAndParam.Call(this.gameObject, item);
                 }
                 else
                 {
